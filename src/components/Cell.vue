@@ -1,13 +1,7 @@
 <template>
-  <div
-    @click="markComplete"
-    class="cell"
-    :class="{x: cell.marker=='x', 
-    o:cell.marker=='o'}"
-  >
-  <p>
-    {{ cell.id }}
-  </p>
+  <div @click="markComplete" class="cell" :class="{x: cell.marker=='x', 
+    o:cell.marker=='o'}">
+    <p>{{ cell.id }}</p>
   </div>
 </template>
 
@@ -36,7 +30,7 @@ export default {
 
 <style >
 p {
-  font-size: 80px; 
+  font-size: 80px;
   text-align: center;
 }
 .cell {

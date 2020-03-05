@@ -22,7 +22,7 @@ export default {
     return {
       cells: cells,
       turn: "x",
-      gameOver: false, 
+      gameOver: false
     };
   },
   methods: {
@@ -30,16 +30,13 @@ export default {
       this.turn === "x" ? (this.turn = "o") : (this.turn = "x");
     },
     endGame(winner) {
-      this.gameOver = true; 
-      if (winner == 'draw') {
+      this.gameOver = true;
+      if (winner == "draw") {
         console.log("you drawww omg");
-      }
-      else {
+      } else {
         console.log("congratulations!!!!!!!!!");
         console.log(winner + " won greatly!");
-
       }
-
     }
   }
 };
