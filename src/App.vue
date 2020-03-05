@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Cells :turn="turn" :cells="cells" @marked="nextTurn"></Cells>
+    <Cells :gameOver="gameOver" :turn="turn" :cells="cells" @marked="nextTurn" @gameOver="endGame"></Cells>
   </div>
 </template>
 
@@ -21,12 +21,25 @@ export default {
   data() {
     return {
       cells: cells,
-      turn: "x"
+      turn: "x",
+      gameOver: false, 
     };
   },
   methods: {
     nextTurn() {
       this.turn === "x" ? (this.turn = "o") : (this.turn = "x");
+    },
+    endGame(winner) {
+      this.gameOver = true; 
+      if (winner == 'draw') {
+        console.log("you drawww omg");
+      }
+      else {
+        console.log("congratulations!!!!!!!!!");
+        console.log(winner + " won greatly!");
+
+      }
+
     }
   }
 };

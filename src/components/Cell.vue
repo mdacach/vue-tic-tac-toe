@@ -4,23 +4,41 @@
     class="cell"
     :class="{x: cell.marker=='x', 
     o:cell.marker=='o'}"
-  >{{cell.id}}</div>
+  >
+  <p>
+    {{ cell.id }}
+  </p>
+  </div>
 </template>
 
 <script>
 export default {
   name: "Cell",
-  props: ["cell", "turn"],
+  props: ["cell", "turn", "gameOver"],
+  data() {
+    return {
+      marked: false
+    };
+  },
   methods: {
     markComplete() {
-      this.cell.marker = this.turn;
-      this.$emit("marked");
+      if (!this.isMarked() && !this.gameOver) {
+        this.cell.marker = this.turn;
+        this.$emit("marked", this.cell.id);
+      }
+    },
+    isMarked() {
+      return this.cell.marker;
     }
   }
 };
 </script>
 
 <style >
+p {
+  font-size: 80px; 
+  text-align: center;
+}
 .cell {
   width: 100%;
   height: 100%;
