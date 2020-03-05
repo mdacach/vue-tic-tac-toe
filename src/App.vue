@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Cells :turn="turn" :cells="cells" @marked="nextTurn"></Cells>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Cells from "./components/Cells";
+
+// creating the 9 cells initially with no marker
+let cells = [];
+for (let i = 1; i <= 9; i++) {
+  cells.push({ id: i, marker: "" });
+}
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Cells
+  },
+  data() {
+    return {
+      cells: cells,
+      turn: "x"
+    };
+  },
+  methods: {
+    nextTurn() {
+      this.turn === "x" ? (this.turn = "o") : (this.turn = "x");
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
