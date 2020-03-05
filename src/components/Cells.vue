@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="cells-container">
     <div v-for="cell in cells" :key="cell.id">
       <Cell
         :gameOver="gameOver"
@@ -70,11 +70,12 @@ export default {
 </script>
 
 <style>
-#container {
-  width: 50vw;
-  height: 50vw;
+#cells-container {
+  width: 800px;
+  height: 800px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  margin: 0 auto;
 }
 </style>
