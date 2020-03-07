@@ -1,16 +1,8 @@
 <template>
   <div id="app">
-    <div id="app-container">
-      <Header />
+    <Header />
 
-      <Cells
-        :gameOver="gameOver"
-        :turn="turn"
-        :cells="cells"
-        @marked="nextTurn"
-        @gameOver="endGame"
-      ></Cells>
-    </div>
+    <Cells :gameOver="gameOver" :turn="turn" :cells="cells" @marked="nextTurn" @gameOver="endGame"></Cells>
   </div>
 </template>
 
@@ -65,9 +57,11 @@ body {
   background-color: var(--primary-color);
 }
 
-#app-container {
+#app {
+  /* serve as a container */
+  height: 60vw;
+  width: 60vw;
   margin: 0 auto;
-  height: 1000px;
-  width: 810px;
+  position: relative;
 }
 </style>

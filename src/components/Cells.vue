@@ -71,11 +71,13 @@ export default {
 
 <style>
 #cells-container {
-  width: 800px;
-  height: 800px;
+  box-sizing: border-box;
+  width: 80%;
+  height: 80%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
   margin: 0 auto;
+  border: solid #d4cdcd 4px;
+  border-radius: 2%;
 }
 </style>

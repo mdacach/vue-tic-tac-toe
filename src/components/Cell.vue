@@ -29,15 +29,15 @@ export default {
 
 <style >
 .cell {
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   background-color: var(--secundary-color);
-  border: solid #d4cdcd 5px;
-  border-radius: 5%;
+  border: solid #d4cdcd 2px;
 }
 
 .cell:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .x {

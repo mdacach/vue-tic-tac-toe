@@ -16,17 +16,17 @@ export default {
 h1 {
   font-family: Maven, fantasy;
   font-weight: bold;
-  font-size: 55px;
+  font-size: 250%;
   color: #d4cdcd;
 }
 
 #header {
   background-color: var(--terciary-color);
-  width: 800px;
-  padding: 10px;
+  width: 80%;
   text-align: center;
-  border-radius: 10px;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  padding: 2px;
+  border-radius: 10px;
 }
 </style>
