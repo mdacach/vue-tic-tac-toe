@@ -15,10 +15,14 @@ import Footer from "./components/Footer";
 import { EventBus } from "./main.js";
 
 // creating the 9 cells initially with no marker
-let cells = [];
-for (let i = 1; i <= 9; i++) {
-  cells.push({ id: i, marker: "" });
-}
+let createCells = function() {
+  let cells = [];
+  for (let i = 1; i <= 9; i++) {
+    cells.push({ id: i, marker: "" });
+  }
+
+  return cells;
+};
 
 export default {
   name: "App",
@@ -29,7 +33,7 @@ export default {
   },
   data() {
     return {
-      cells: cells,
+      cells: createCells(),
       turn: "x",
       gameOver: false
     };
@@ -47,23 +51,17 @@ export default {
         console.log(winner + " won greatly!");
       }
     },
-    newGame() {
-      this.gameOver = false;
+    resetApp() {
+      this.cells = createCells();
       this.turn = "x";
-      this.resetGrid();
-    },
-    resetGrid() {
-      let cells = [];
-      for (let i = 1; i <= 9; i++) {
-        cells.push({ id: i, marker: "" });
-      }
-      this.cells = cells;
+      this.gameOver = false;
     }
   },
+
   created() {
     EventBus.$on("marked", this.nextTurn);
     EventBus.$on("gameOver", this.endGame);
-    EventBus.$on("newGame", this.newGame);
+    EventBus.$on("newGame", this.resetApp);
   }
 };
 </script>

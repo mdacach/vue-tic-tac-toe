@@ -24,7 +24,14 @@ export default {
     },
     isMarked() {
       return this.cell.marker;
+    },
+    resetCell() {
+      this.marked = false;
+      this.marker = this.cell.marker;
     }
+  },
+  created() {
+    EventBus.$on("newGame", this.resetCell);
   }
 };
 </script>

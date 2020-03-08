@@ -67,10 +67,16 @@ export default {
       this.markGrid(id);
       this.cellsMarked++;
       this.isGameOver();
+    },
+    resetCells() {
+      (this.grid = ["null", "", "", "", "", "", "", "", "", ""]),
+        (this.cellsMarked = 0);
     }
   },
   created() {
     EventBus.$on("marked", this.updateOnMarked);
+    // reset this object
+    EventBus.$on("newGame", this.resetCells);
   }
 };
 </script>
