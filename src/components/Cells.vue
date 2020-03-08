@@ -80,8 +80,8 @@ export default {
 <style>
 #cells-container {
   box-sizing: border-box;
-  width: 80%;
-  height: 80%;
+  width: 60%;
+  height: 60%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: 0 auto;

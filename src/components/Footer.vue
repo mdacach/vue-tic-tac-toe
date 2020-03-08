@@ -38,7 +38,7 @@ export default {
 
 <style>
 #footer {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 70% 30%;

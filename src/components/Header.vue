@@ -20,7 +20,7 @@ export default {
 
 #header {
   background-color: var(--terciary-color);
-  width: 80%;
+  width: 60%;
   text-align: center;
   margin: 0 auto;
   margin-bottom: 30px;
