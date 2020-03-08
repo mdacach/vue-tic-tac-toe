@@ -4,6 +4,8 @@
 </template>
 
 <script>
+import { EventBus } from "../main";
+
 export default {
   name: "Cell",
   props: ["cell", "turn", "gameOver"],
@@ -17,7 +19,7 @@ export default {
     markComplete() {
       if (!this.isMarked() && !this.gameOver) {
         this.cell.marker = this.turn;
-        this.$emit("marked", this.cell.id);
+        EventBus.$emit("marked", this.cell.id);
       }
     },
     isMarked() {

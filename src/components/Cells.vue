@@ -1,18 +1,12 @@
 <template>
   <div id="cells-container">
-    <div v-for="cell in cells" :key="cell.id">
-      <Cell
-        :gameOver="gameOver"
-        :turn="turn"
-        :cell="cell"
-        @marked="$emit('marked', cell.id); markGrid(cell.id); cellsMarked++; isGameOver(); "
-      />
-    </div>
+    <Cell v-for="cell in cells" :key="cell.id" :gameOver="gameOver" :turn="turn" :cell="cell" />
   </div>
 </template>
 
 <script>
 import Cell from "./Cell";
+import { EventBus } from "../main";
 
 export default {
   name: "Cells",
@@ -47,16 +41,20 @@ export default {
       for (let board of winningBoards) {
         if (this.equals3(board, "x")) {
           let winner = "x";
-          this.$emit("gameOver", winner);
+
+          EventBus.$emit("gameOver", winner);
+
           return;
         } else if (this.equals3(board, "o")) {
           let winner = "o";
-          this.$emit("gameOver", winner);
+
+          EventBus.$emit("gameOver", winner);
+
           return;
         }
       }
       if (this.cellsMarked === 9) {
-        this.$emit("gameOver", "draw");
+        EventBus.$emit("gameOver", "draw");
       }
     },
     markGrid(id) {
@@ -64,7 +62,15 @@ export default {
     },
     showGrid() {
       console.log(this.grid);
+    },
+    updateOnMarked(id) {
+      this.markGrid(id);
+      this.cellsMarked++;
+      this.isGameOver();
     }
+  },
+  created() {
+    EventBus.$on("marked", this.updateOnMarked);
   }
 };
 </script>

@@ -11,8 +11,6 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,900&display=swap");
-
 h1 {
   font-family: Maven, fantasy;
   font-weight: bold;
