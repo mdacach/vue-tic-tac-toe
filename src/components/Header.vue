@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <h1>Tic Tac Toe</h1>
+    <h1 id="header-text">Tic Tac Toe</h1>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style>
-h1 {
+#header-text {
   font-family: Maven, fantasy;
   font-weight: bold;
   font-size: 250%;

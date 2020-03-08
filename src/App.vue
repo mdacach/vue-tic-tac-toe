@@ -35,7 +35,8 @@ export default {
     return {
       cells: createCells(),
       turn: "x",
-      gameOver: false
+      gameOver: false,
+      winner: null
     };
   },
   methods: {
@@ -44,17 +45,13 @@ export default {
     },
     endGame(winner) {
       this.gameOver = true;
-      if (winner == "draw") {
-        console.log("you drawww omg");
-      } else {
-        console.log("congratulations!!!!!!!!!");
-        console.log(winner + " won greatly!");
-      }
+      this.winner = winner;
     },
     resetApp() {
       this.cells = createCells();
       this.turn = "x";
       this.gameOver = false;
+      this.winner = null;
     }
   },
 

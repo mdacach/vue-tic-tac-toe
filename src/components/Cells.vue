@@ -41,15 +41,11 @@ export default {
       for (let board of winningBoards) {
         if (this.equals3(board, "x")) {
           let winner = "x";
-
           EventBus.$emit("gameOver", winner);
-
           return;
         } else if (this.equals3(board, "o")) {
           let winner = "o";
-
           EventBus.$emit("gameOver", winner);
-
           return;
         }
       }
